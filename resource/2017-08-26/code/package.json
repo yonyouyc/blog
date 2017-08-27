@@ -1,0 +1,13 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config config/webpack.base.config.js"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.5.5"
+  }
+}
