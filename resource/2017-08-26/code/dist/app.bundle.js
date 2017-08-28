@@ -65,10 +65,23 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_css__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__index_css__);
+
+var el = document.getElementsByTagName('body')[0]
+var div = document.createElement('div')
+div.innerHTML = 'Getting Start'
+el.appendChild(div)
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
-var el = document.getElementById('app')
-el.innerHTML = 'Getting Start'
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
