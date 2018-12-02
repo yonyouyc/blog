@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functional javascript</title>
+    <style>
+        pre{
+            background: black;
+            color: #FFF;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+<h1>例子1. 需求：实现一个特定组合的计数器，每次点击返回数字+1</h1>
+
+普通实现：<br>
+<button id="oldclick">点击我</button>
+<div>点击次数 <span id="count"></span></div>
+<pre>
+<code>
+    // 普通方式
+    var generator = {
+        count: 1,
+        addNumber: function () {
+            document.getElementById('count').innerHTML = this.count++
+        }
+    }
+    document.getElementById("oldclick").onclick= function () {
+        generator.addNumber()
+    }
+    // 会有哪些问题，1.其他人有办法直接修改generate.count的值，来造成对数据的破坏，我们应当减少这种可能的风险
+</code>
+</pre>
+函数式实现：（我们也可以使用闭包的方式实现，但实际上代码可读性并不友好）<br>
+<button id="newclick">点击我--新方式</button>
+<div>点击次数 <span id="newcount"></span></div>
+<pre>
+<code>
+    // 函数式方式
+    var addNumber = function () {
+        var count = 1
+        return function () {
+            document.getElementById('newcount').innerHTML = count++
+        }
+    }
+    document.getElementById("newclick").onclick = addNumber()
+</code>
+</pre>
+<script >
+  var generator = {
+    count: 1,
+    addNumber: function () {
+      document.getElementById('count').innerHTML = this.count++
+    }
+  }
+  document.getElementById("oldclick").onclick= function () {
+    generator.addNumber()
+  }
+  // 函数式方式
+  var addNumber = function () {
+    var count = 1
+    return function () {
+      document.getElementById('newcount').innerHTML = count++
+    }
+  }
+  var clickFn = addNumber()
+  document.getElementById("newclick").onclick = clickFn
+</script>
+</body>
+</html>

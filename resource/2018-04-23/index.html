@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css顺滑滑动</title>
+    <script src="https://cdn.bootcss.com/knockout/3.4.2/knockout-min.js"></script>
+    <style>
+        ul{
+            list-style: none;
+        }
+        ul li {
+            display: inline-block;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        ul li div{
+            padding:0 10px;
+        }
+        .border {
+            border-bottom: solid 1px red;
+            transform: translateX(-100%);
+            transition: all 1s;
+        }
+        .active .border{
+            transform: translateX(0);
+        }
+        .dispearleft .border{
+            transform: translateX(-100%);
+        }
+        .dispearright .border{
+            transform: translateX(100%);
+        }
+
+    </style>
+</head>
+<body>
+    <ul data-bind="foreach: list"><li data-bind="click:$parent.click,css:{'active':active,'dispearright':dispearright, 'dispearleft':dispearleft}">
+        <div data-bind="text:name"></div>
+        <div class="border"></div>
+    </li></ul>
+<script src="tab.js"></script>
+</body>
+</html>
